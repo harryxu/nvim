@@ -13,7 +13,10 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
+
+-- disable backup and swap
 vim.opt.backup = false
+vim.opt.swapfile = false
 
 vim.opt.autoread = true
 vim.opt.showcmd = true -- show incomplete cmds down the bottom
