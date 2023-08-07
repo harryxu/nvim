@@ -79,6 +79,21 @@ _G.packer_plugins = {
     path = "/Users/harry/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["codeium.vim"] = {
+    loaded = true,
+    path = "/Users/harry/.local/share/nvim/site/pack/packer/start/codeium.vim",
+    url = "https://github.com/Exafunction/codeium.vim"
+  },
+  colorsbox = {
+    loaded = true,
+    path = "/Users/harry/.local/share/nvim/site/pack/packer/start/colorsbox",
+    url = "https://github.com/mkarmona/colorsbox"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/harry/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/harry/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -98,6 +113,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/harry/.local/share/nvim/site/pack/packer/start/vim-airline",
     url = "https://github.com/bling/vim-airline"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/harry/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/harry/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
 
