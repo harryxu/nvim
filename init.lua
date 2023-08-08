@@ -21,13 +21,11 @@ require('lazy').setup('plugins')
 local keymap = vim.keymap
 
 ----------------- ## Base settings
-vim.cmd('autocmd!')
-
 vim.api.nvim_exec ('language en_US', true)
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
--- vim.opt.fileencoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 vim.o.number = true
 vim.opt.title = true
 vim.opt.autoindent = true
