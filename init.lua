@@ -1,14 +1,34 @@
-require('plugins')
+-- Leader/local leader - lazy.nvim needs these set first
+vim.g.mapleader = ' '
+-- vim.g.mapleader = [[ ]]
+-- vim.g.maplocalleader = [[,]]
+
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup('plugins')
 
 local keymap = vim.keymap
 
 ----------------- ## Base settings
-vim.cmd("autocmd!")
+vim.cmd('autocmd!')
+
+vim.api.nvim_exec ('language en_US', true)
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
-vim.wo.number = true
+-- vim.opt.fileencoding = 'utf-8'
+vim.o.number = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -29,13 +49,13 @@ vim.opt.smartcase = true
 vim.opt.autochdir = true -- switch to the directory of the open buffer
 
 vim.opt.wildmenu = true
-vim.opt.completeopt=longest,menuone
+vim.opt.completeopt = 'longest,menuone'
 vim.opt.splitbelow=true
 
 -- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
+vim.api.nvim_create_autocmd('InsertLeave', {
   pattern = '*',
-  command = "set nopaste"
+  command = 'set nopaste'
 })
 
 -- color theme
@@ -70,5 +90,5 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvim-tree").setup()
+require('nvim-tree').setup()
 keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:NvimTreeToggle<CR>')
