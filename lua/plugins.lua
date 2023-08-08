@@ -1,8 +1,17 @@
 return {
 
   -- nvim tree
-  'kyazdani42/nvim-web-devicons',
-  'kyazdani42/nvim-tree.lua',
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('nvim-tree').setup({
+        sort_by = 'case_sensitive',
+      })
+      vim.keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:NvimTreeToggle<CR>')
+    end,
+  },
 
   -- The neovim tabline plugin
   'romgrk/barbar.nvim',

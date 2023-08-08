@@ -23,6 +23,13 @@ local keymap = vim.keymap
 ----------------- ## Base settings
 vim.api.nvim_exec ('language en_US', true)
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
@@ -75,18 +82,3 @@ keymap.set('i', '<D-s>', '<C-O>:update<CR>')
 -- copy to clip board by ctrl/command c
 keymap.set('v', '<C-c>', '"+y')
 keymap.set('v', '<D-c>', '"+y')
-
-
------------------ ## Plugin settings
-
--- ### nvim tree
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
--- empty setup using defaults
-require('nvim-tree').setup()
-keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:NvimTreeToggle<CR>')
