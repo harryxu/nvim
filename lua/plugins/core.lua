@@ -1,5 +1,7 @@
 require("lazyvim.config").init()
 
+local Util = require("lazyvim.util")
+
 return {
 
   -- nvim tree
@@ -99,12 +101,27 @@ return {
   },
 
   -- The neovim tabline plugin
-  'romgrk/barbar.nvim',
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    -- init = function() vim.g.barbar_auto_setup = false end,
+  },
 
   -- Find, Filter, Preview, Pick.
   {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    cmd = "Telescope",
+    version = false, -- telescope did only one release, so use HEAD for now
+    keys = {
+      { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+      { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      { "<C-P>", Util.telescope("files"), desc = "Find Files (root dir)" },
+    }
   },
 
   'airblade/vim-gitgutter',

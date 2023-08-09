@@ -4,7 +4,7 @@
 
 local keymap = vim.keymap
 
-keymap.set('', '<F2>', ':nohlsearch<CR>')
+keymap.set('n', '<F2>', ':nohlsearch<CR>')
 
 -- ctrl/command s for save file
 keymap.set('n', '<C-s>', ':update<CR>')
