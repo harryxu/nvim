@@ -1,3 +1,5 @@
+require("lazyvim.config").init()
+
 return {
 
   -- nvim tree
@@ -117,5 +119,12 @@ return {
   'bling/vim-airline',
   { 'mkarmona/colorsbox', lazy = true },
   'EdenEast/nightfox.nvim',
+
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nordfox",
+    },
+  }
 
 }
