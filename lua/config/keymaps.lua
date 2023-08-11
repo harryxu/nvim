@@ -22,10 +22,8 @@ local keymap = vim.keymap
 
 keymap.set('n', '<F2>', ':nohlsearch<CR>')
 
--- ctrl/command s for save file
-keymap.set('n', '<C-s>', ':update<CR>')
-keymap.set('v', '<C-s>', '<C-C>:update<CR>')
-keymap.set('i', '<C-s>', '<C-O>:update<CR>')
+-- save file
+map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 keymap.set('n', '<D-s>', ':update<CR>')
 keymap.set('v', '<D-s>', '<C-C>:update<CR>')
@@ -35,18 +33,17 @@ keymap.set('i', '<D-s>', '<C-O>:update<CR>')
 keymap.set('v', '<C-c>', '"+y')
 keymap.set('v', '<D-c>', '"+y')
 
+if Util.has("vim-tmux-navigator") then
+  map({'n'}, '<C-H>', ':<C-U>TmuxNavigateLeft<cr>', { silent = true })
+  map({'n'}, '<C-J>', ':<C-U>TmuxNavigateDown<cr>', { silent = true })
+  map({'n'}, '<C-K>', ':<C-U>TmuxNavigateUp<cr>', { silent = true })
+  map({'n'}, '<C-L>', ':<C-U>TmuxNavigateRight<cr>', { silent = true })
+end
+
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
--- Move Lines
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
 if Util.has("bufferline.nvim") then
@@ -89,9 +86,6 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
-
--- save file
-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 --keywordprg
 map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
