@@ -4,19 +4,6 @@ local Util = require("lazyvim.util")
 
 return {
 
-  -- nvim tree
-  {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('nvim-tree').setup({
-        sort_by = 'case_sensitive',
-      })
-      vim.keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:NvimTreeToggle<CR>')
-    end,
-  },
-
   -- snippets
   {
     "L3MON4D3/LuaSnip",

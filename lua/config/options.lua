@@ -33,7 +33,7 @@ vim.opt.ignorecase = true
 vim.opt.incsearch = true -- find the next match as we type the search
 vim.opt.hlsearch = true -- hilight searches by default
 vim.opt.smartcase = true
-vim.opt.autochdir = true -- switch to the directory of the open buffer
+--vim.opt.autochdir = true -- switch to the directory of the open buffer
 
 vim.opt.wildmenu = true
 vim.opt.completeopt = 'longest,menuone'
