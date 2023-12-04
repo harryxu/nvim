@@ -46,3 +46,4 @@ vim.opt.wildmenu = true
 vim.opt.completeopt = 'longest,menuone'
 vim.opt.splitbelow=true
 
+vim.o.guifont = 'Iosevka NFM:h21'

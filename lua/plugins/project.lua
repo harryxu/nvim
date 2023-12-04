@@ -21,6 +21,9 @@ return {
       sort_by = 'case_sensitive',
       sync_root_with_cwd = true,
       respect_buf_cwd = true,
+      filters = {
+        git_ignored = false,
+      }
     },
     config = function(_, opts)
       require('nvim-tree').setup(opts)
