@@ -45,5 +45,6 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.wildmenu = true
 vim.opt.completeopt = 'longest,menuone'
 vim.opt.splitbelow=true
+vim.opt.relativenumber = false
 
 vim.o.guifont = 'Iosevka NFM:h21'
