@@ -118,6 +118,14 @@ return {
   -- Seamless navigation between tmux panes and vim splits
   'christoomey/vim-tmux-navigator',
 
+  {
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' },
+    config = function()
+      require('leap').create_default_mappings()
+    end,
+  },
+
   -- Color themes
   'bling/vim-airline',
   { 'mkarmona/colorsbox', lazy = true },
