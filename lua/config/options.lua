@@ -16,6 +16,7 @@ vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 -- vim.opt.fileencoding = 'utf-8'
 vim.o.number = true
+vim.opt.relativenumber = false
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -45,6 +46,5 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.wildmenu = true
 vim.opt.completeopt = 'longest,menuone'
 vim.opt.splitbelow=true
-vim.opt.relativenumber = false
 
 vim.o.guifont = 'Iosevka NFM:h21'
