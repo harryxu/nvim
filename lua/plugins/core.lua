@@ -4,6 +4,15 @@ local Util = require("lazyvim.util")
 
 return {
 
+  { "folke/lazy.nvim", version = "*" },
+
+  {
+    "LazyVim/LazyVim", priority = 10000, lazy = false, config = true, cond = true, version = "*",
+    opts = {
+      colorscheme = "nordfox",
+    },
+  },
+
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -130,12 +139,5 @@ return {
   'bling/vim-airline',
   { 'mkarmona/colorsbox', lazy = true },
   'EdenEast/nightfox.nvim',
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "nordfox",
-    },
-  }
 
 }

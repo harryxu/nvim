@@ -14,8 +14,6 @@ vim.opt.termguicolors = true
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
--- vim.opt.fileencoding = 'utf-8'
-vim.o.number = true
 vim.opt.relativenumber = false
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -29,6 +27,11 @@ vim.opt.swapfile = false
 vim.opt.autoread = true
 vim.opt.showcmd = true -- show incomplete cmds down the bottom
 vim.opt.showmode = true -- show current mode down the bottom
+vim.opt.number = true
+
+-- Do Not mess up the system clipboard! I realy don't like LazyVim's default setting (unnamedplus) for this.
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua#L22
+vim.opt.clipboard = ""
 
 vim.opt.ignorecase = true
 vim.opt.incsearch = true -- find the next match as we type the search
