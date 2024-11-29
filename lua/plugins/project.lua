@@ -14,20 +14,9 @@ return {
 
   -- nvim tree
   {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {
-      sort_by = 'case_sensitive',
-      sync_root_with_cwd = true,
-      respect_buf_cwd = true,
-      filters = {
-        git_ignored = false,
-      }
-    },
+    "nvim-neo-tree/neo-tree.nvim",
     config = function(_, opts)
-      require('nvim-tree').setup(opts)
-      vim.keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:NvimTreeFindFileToggle<CR>')
+      vim.keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:Neotree toggle<CR>')
     end,
   },
 

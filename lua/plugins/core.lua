@@ -1,6 +1,6 @@
 require("lazyvim.config").init()
 
-local Util = require("lazyvim.util")
+-- local Util = require("lazyvim.util")
 
 return {
 
@@ -98,6 +98,7 @@ return {
   -- The neovim tabline plugin
   {
     'romgrk/barbar.nvim',
+    event = "VeryLazy",
     dependencies = {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
@@ -113,9 +114,9 @@ return {
     version = false, -- telescope did only one release, so use HEAD for now
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-      { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+      -- { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<C-P>", Util.telescope("files"), desc = "Find Files (root dir)" },
+      -- { "<C-P>", Util.telescope("files"), desc = "Find Files (root dir)" },
     }
   },
 
@@ -127,16 +128,15 @@ return {
   -- Seamless navigation between tmux panes and vim splits
   'christoomey/vim-tmux-navigator',
 
-  {
-    'ggandor/leap.nvim',
-    dependencies = { 'tpope/vim-repeat' },
-    config = function()
-      require('leap').create_default_mappings()
-    end,
-  },
+  -- {
+  --   'ggandor/leap.nvim',
+  --   dependencies = { 'tpope/vim-repeat' },
+  --   config = function()
+  --     require('leap').create_default_mappings()
+  --   end,
+  -- },
 
   -- Color themes
-  'bling/vim-airline',
   { 'mkarmona/colorsbox', lazy = true },
   'EdenEast/nightfox.nvim',
 

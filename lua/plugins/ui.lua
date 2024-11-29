@@ -1,5 +1,8 @@
 return  {
 
+  -- Uncomment the following line to disable the dashboard.
+  -- { "folke/snacks.nvim", opts = { dashboard = { enabled = false } } },
+
   -- UFO folding
   -- Copied from https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1512772530
   {
