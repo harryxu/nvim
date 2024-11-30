@@ -16,7 +16,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     config = function(_, opts)
-      vim.keymap.set({'n', 'i', 'v'}, '<F3>', '<ESC>:Neotree toggle<CR>')
+      vim.keymap.set({ 'n', 'i', 'v' }, '<F3>', '<ESC>:Neotree toggle<CR>')
     end,
   },
 

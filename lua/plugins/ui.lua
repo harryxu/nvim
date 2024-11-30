@@ -1,4 +1,4 @@
-return  {
+return {
 
   -- Uncomment the following line to disable the dashboard.
   -- { "folke/snacks.nvim", opts = { dashboard = { enabled = false } } },
@@ -16,8 +16,8 @@ return  {
           require("statuscol").setup({
             relculright = true,
             segments = {
-              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-              { text = { "%s" }, click = "v:lua.ScSa" },
+              { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+              { text = { "%s" },                  click = "v:lua.ScSa" },
               { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
             },
           })
@@ -30,7 +30,11 @@ return  {
         return { "treesitter", "indent" }
       end,
     },
+  },
 
+  -- Scroll bar
+  {
+    "dstein64/nvim-scrollview"
   },
 
   {

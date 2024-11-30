@@ -1,7 +1,5 @@
 require("lazyvim.config").init()
 
--- local Util = require("lazyvim.util")
-
 return {
 
   { "folke/lazy.nvim",    version = "*" },
@@ -152,7 +150,7 @@ return {
     -- init = function() vim.g.barbar_auto_setup = false end,
   },
 
-  -- Find, Filter, Preview, Pick.
+  -- Telescope. Find, Filter, Preview, Pick.
   {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -160,10 +158,19 @@ return {
     version = false, -- telescope did only one release, so use HEAD for now
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-      -- { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>",               desc = "Command History" },
-      -- { "<C-P>", Util.telescope("files"), desc = "Find Files (root dir)" },
-    }
+      { "<C-p>",     "<cmd>Telescope git_files previewer=false<cr>",  desc = "Find Files (git-files)" },
+    },
+    opts = function()
+      return {
+        defaults = {
+          path_display = {
+            "filename_first"
+          },
+        }
+      }
+    end
+
   },
 
   -- Codeium
