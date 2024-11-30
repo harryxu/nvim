@@ -4,10 +4,15 @@ require("lazyvim.config").init()
 
 return {
 
-  { "folke/lazy.nvim", version = "*" },
+  { "folke/lazy.nvim",    version = "*" },
 
   {
-    "LazyVim/LazyVim", priority = 10000, lazy = false, config = true, cond = true, version = "*",
+    "LazyVim/LazyVim",
+    priority = 10000,
+    lazy = false,
+    config = true,
+    cond = true,
+    version = "*",
     opts = {
       colorscheme = "nordfox",
     },
@@ -29,7 +34,7 @@ return {
       delete_check_events = "TextChanged",
     },
     keys = {
-      { "<C-L>", function() require("luasnip").jump(1) end, silent = true, mode = {"i", "s"} },
+      { "<C-L>", function() require("luasnip").jump(1) end,  silent = true, mode = { "i", "s" } },
       { "<C-H>", function() require("luasnip").jump(-1) end, silent = true, mode = { "i", "s" } },
     },
   },
@@ -45,14 +50,51 @@ return {
       'hrsh7th/cmp-path',
       'saadparwaiz1/cmp_luasnip',
       'octaltree/cmp-look',
+      'brenoprata10/nvim-highlight-colors',
     },
     opts = function()
       -- vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
       local cmp = require('cmp')
       local defaults = require('cmp.config.default')()
+
+      local function get_icon_provider()
+        local _, mini_icons = pcall(require, "mini.icons")
+        return function(kind) return mini_icons.get("lsp", kind or "") end
+      end
+      local icon_provider = get_icon_provider()
+
+      local function format(entry, item)
+        local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+        local color_item = highlight_colors_avail and highlight_colors.format(entry, { kind = item.kind })
+        -- item.menu = item.kind
+        item.menu = entry.source.name
+        if icon_provider then
+          local icon = icon_provider(item.kind)
+          if icon then
+            item.kind = ' ' .. icon .. ' '
+          end
+        end
+        if color_item and color_item.abbr and color_item.abbr_hl_group then
+          item.kind, item.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
+        end
+        return item
+      end
+
       return {
         completion = {
           completeopt = 'menu,menuone,noinsert',
+        },
+        window = {
+          completion = cmp.config.window.bordered {
+            col_offset = -2,
+            side_padding = 0,
+            border = "rounded",
+            winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+          },
+          documentation = cmp.config.window.bordered {
+            border = "rounded",
+            winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+          },
         },
         snippet = {
           expand = function(args)
@@ -78,12 +120,16 @@ return {
             name = 'look',
             keyword_length = 3,
             option = {
-                convert_case = true,
-                loud = true
+              convert_case = true,
+              loud = true
             }
           }
         }),
         sorting = defaults.sorting,
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = format,
+        },
       }
     end,
   },
@@ -100,7 +146,7 @@ return {
     'romgrk/barbar.nvim',
     event = "VeryLazy",
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     -- init = function() vim.g.barbar_auto_setup = false end,
@@ -115,7 +161,7 @@ return {
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       -- { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      { "<leader>:", "<cmd>Telescope command_history<cr>",               desc = "Command History" },
       -- { "<C-P>", Util.telescope("files"), desc = "Find Files (root dir)" },
     }
   },
