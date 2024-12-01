@@ -16,6 +16,16 @@ return {
     },
   },
 
+  -- auto session
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = {
+      suppressed_dirs = { '~/', '~/dev', '~/Downloads' },
+      -- log_level = 'debug',
+    }
+  },
+
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -159,7 +169,7 @@ return {
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>:", "<cmd>Telescope command_history<cr>",               desc = "Command History" },
-      { "<C-p>",     "<cmd>Telescope git_files previewer=false<cr>",  desc = "Find Files (git-files)" },
+      { "<C-p>",     "<cmd>Telescope git_files previewer=false<cr>",     desc = "Find Files (git-files)" },
     },
     opts = function()
       return {
