@@ -1,7 +1,6 @@
 return {
 
-  -- Uncomment the following line to disable the dashboard.
-  -- { "folke/snacks.nvim", opts = { dashboard = { enabled = false } } },
+  { "folke/snacks.nvim", opts = { dashboard = { enabled = false } } },
 
   -- UFO folding
   -- Copied from https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1512772530
@@ -16,9 +15,9 @@ return {
           require("statuscol").setup({
             relculright = true,
             segments = {
-              { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
               { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-              { text = { "%s" },                  click = "v:lua.ScSa" },
+              { text = { "%s" }, click = "v:lua.ScSa" },
             },
           })
         end,
@@ -34,7 +33,7 @@ return {
 
   -- Scroll bar
   {
-    "dstein64/nvim-scrollview"
+    "dstein64/nvim-scrollview",
   },
 
   -- which-key
@@ -49,6 +48,6 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
-  }
+    },
+  },
 }
