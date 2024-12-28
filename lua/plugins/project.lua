@@ -17,7 +17,16 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     config = function(_, opts)
       vim.keymap.set({ 'n', 'i', 'v' }, '<F3>', '<ESC>:Neotree toggle<CR>')
+      require("neo-tree").setup({
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false
+          }
+        }
+      })
     end,
+    opts = { }
   },
 
 }

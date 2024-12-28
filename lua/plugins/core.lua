@@ -170,6 +170,7 @@ return {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>:", "<cmd>Telescope command_history<cr>",               desc = "Command History" },
       { "<C-p>",     "<cmd>Telescope git_files previewer=false<cr>",     desc = "Find Files (git-files)" },
+      { "<D-p>",     "<cmd>Telescope git_files previewer=false<cr>",     desc = "Find Files (git-files)" },
     },
     opts = function()
       return {
