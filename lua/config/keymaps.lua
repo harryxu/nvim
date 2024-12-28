@@ -29,6 +29,17 @@ keymap.set('n', '<D-s>', ':update<CR>')
 keymap.set('v', '<D-s>', '<C-C>:update<CR>')
 keymap.set('i', '<D-s>', '<C-O>:update<CR>')
 
+-- Commenting
+if vim.loop.os_uname().sysname == 'Darwin' then
+  keymap.set('v', '<D-/>', 'gc', { remap = true })
+  keymap.set('n', '<D-/>', ':norm gcc<CR>')
+  keymap.set('i', '<D-/>', '<ESC>:norm gcc<CR>')
+end
+
+keymap.set('v', '<C-/>', 'gc', { remap = true })
+keymap.set('n', '<C-/>', ':norm gcc<CR>')
+keymap.set('i', '<C-/>', '<ESC>:norm gcc<CR>')
+
 -- copy to clip board by ctrl/command c
 keymap.set('v', '<C-c>', '"+y')
 keymap.set('v', '<D-c>', '"+y')
