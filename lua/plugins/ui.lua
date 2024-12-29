@@ -31,6 +31,16 @@ return {
     },
   },
 
+  --
+  {
+    "Bekaboo/dropbar.nvim",
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
+  },
+
   -- Scroll bar
   {
     "dstein64/nvim-scrollview",
@@ -49,5 +59,22 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+  },
+
+  -- lua line
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    opts = function()
+      local opts = {
+        options = {
+          theme = "auto",
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "", right = "" },
+        },
+      }
+      return opts
+    end,
   },
 }
