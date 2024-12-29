@@ -2,8 +2,11 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
+-- Disable all animations with
+vim.g.snacks_animate = false
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -12,8 +15,8 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-vim.scriptencoding = 'utf-8'
-vim.opt.encoding = 'utf-8'
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
 vim.opt.relativenumber = false
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -47,8 +50,8 @@ vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.opt.wildmenu = true
-vim.opt.completeopt = 'longest,menuone'
-vim.opt.splitbelow=true
+vim.opt.completeopt = "longest,menuone"
+vim.opt.splitbelow = true
 vim.opt.pumblend = 0
 
-vim.o.guifont = 'Iosevka NFM:h21'
+vim.o.guifont = "Iosevka NFM:h21"
